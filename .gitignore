@@ -1,0 +1,8 @@
+# saved Instagram pages (source dumps, not part of the site)
+assets/profile.html
+assets/profile_files/
+assets/Stories*Instagram*
+assets/Stories*Instagram*_files/
+assets/saved_resource.html
+Thumbs.db
+.DS_Store

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23f0dcb6' stroke-width='3'/%3E%3Cpath d='M23 17v30M23 33l16-16M27 31l14 16' stroke='%23f0dcb6' stroke-width='6' stroke-linecap='round' fill='none'/%3E%3Cpath d='M48 8l2 5 5 2-5 2-2 5-2-5-5-2 5-2z' fill='%23e0529a'/%3E%3C/svg%3E">
+<title>KAUZMIK — Independent Music Artist</title>
+<meta name="description" content="KAUZMIK is an independent music artist: vocalist, lyricist, composer, percussionist and guitarist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&family=Playfair+Display:ital,wght@0,900;1,900&family=Permanent+Marker&family=Poppins:wght@300;400;500&family=Rubik+Mono+One&family=Abril+Fatface&family=Bebas+Neue&family=Rye&family=Mr+Dafoe&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Big+Shoulders+Display:wght@900&family=Antonio:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="anim.css">
+<link rel="stylesheet" href="type.css">
+<link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="chalk" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="w"/>
+    <feDisplacementMap in="SourceGraphic" in2="w" scale="4" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="9" result="g"/>
+    <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -7 5.9" result="gm"/>
+    <feComposite in="d" in2="gm" operator="in"/>
+  </filter>
+</svg>
+<div class="loader" aria-hidden="true">
+  <div class="ld-notes"></div>
+  <div class="ld-deck">
+    <div class="loader-vinyl"><i><b>KZ</b></i></div>
+    <div class="tonearm"><u></u></div>
+  </div>
+  <p class="loader-word" data-ransom>KAUZMIK</p>
+  <div class="ld-eq"></div>
+  <p class="ld-status"><span class="ld-pct">000</span><span class="ld-sep">/</span><span class="ld-msg">tuning in</span></p>
+  <div class="loader-tear"></div>
+</div>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="float-layer" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav">
+  <a href="#top" class="logo" aria-label="KAUZMIK home">
+    <span class="sig">Kauzmik</span>
+    <svg class="swash" viewBox="0 0 220 28" aria-hidden="true"><path d="M4 20 C40 6, 90 4, 130 12 S190 22, 216 6"/><path d="M60 24 C100 16, 150 18, 190 24"/></svg>
+    <svg class="spark" viewBox="-10 -10 20 20" aria-hidden="true"><path d="M0-10C1.4-3.6 3.6-1.4 10 0 3.6 1.4 1.4 3.6 0 10-1.4 3.6-3.6 1.4-10 0-3.6-1.4-1.4-3.6 0-10Z"/></svg>
+  </a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <ul>
+    <li><a href="#about">Biography</a></li>
+    <li><a href="#skills">Roles</a></li>
+    <li><a href="#live">Live</a></li>
+    <li><a href="#moments">Moments</a></li>
+    <li><a href="#samples">Music</a></li>
+    <li><a href="#contact">Book</a></li>
+  </ul>
+  <button class="vibe" aria-pressed="false" aria-label="Toggle beat">
+    <span class="eq"><i></i><i></i><i></i><i></i></span>
+    <span class="vibe-label">Vibe off</span>
+  </button>
+</nav>
+
+<main id="top" class="poster">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-text">
+    <p class="hero-tag">Independent music artist</p>
+    <h1 class="hero-name" data-ransom aria-label="KAUZMIK">KAUZMIK</h1>
+    <p class="hero-q">Who is <em>KAUZMIK?</em></p>
+    <p class="hero-sub">Vocalist. Lyricist. Composer. Percussionist. Guitarist.</p>
+    <div class="hero-btns">
+      <a class="btn solid" href="#samples">Listen</a>
+      <a class="btn" href="#contact">Book me</a>
+    </div>
+  </div>
+  <div class="hero-collage">
+    <div class="sticker s-a"><div class="photo-slot cut" data-label="Photo"><img src="assets/img/heather.jpg" alt="KAUZMIK playing guitar on a dark stage" loading="lazy"></div></div>
+    <div class="sticker s-b"><div class="photo-slot cut" data-label="Photo"><img src="assets/img/yellowstone.jpg" alt="Close-up of a guitar, black and white" loading="lazy"></div></div>
+    <div class="sticker s-c"><div class="photo-slot cut" data-label="Photo"><img src="assets/img/stage.jpg" alt="KAUZMIK on stage with the band" loading="lazy"></div></div>
+    <div class="sticker s-main">
+      <div class="photo-slot main" data-label="Portrait">
+        <img src="assets/img/live.jpg" alt="KAUZMIK singing and playing acoustic guitar under string lights">
+      </div>
+    </div>
+    <svg class="doodle d1" viewBox="0 0 120 80"><path d="M10 70 L30 15 L50 55 L70 10 L90 60 L112 20"/></svg>
+    <svg class="doodle d2" viewBox="0 0 80 80"><circle cx="40" cy="40" r="28"/><circle cx="40" cy="40" r="14"/><path d="M40 4V76M4 40H76"/></svg>
+  </div>
+</header>
+
+<div class="tear" data-seed="1"></div>
+
+<!-- TICKER -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Vocalist ✶ Lyricist ✶ Composer ✶ Percussionist ✶ Guitarist ✶ Creative Development ✶ </span>
+    <span>Vocalist ✶ Lyricist ✶ Composer ✶ Percussionist ✶ Guitarist ✶ Creative Development ✶ </span>
+  </div>
+</div>
+<div class="tear thin flip" data-seed="2"></div>
+
+<!-- BIOGRAPHY -->
+<section id="about" class="about">
+  <div class="sticker bio-photo-wrap">
+    <div class="photo-slot bio-photo" data-label="Guitar photo">
+      <img src="assets/img/silhouette.jpg" alt="KAUZMIK at sunset with a guitar on his back" loading="lazy">
+    </div>
+    <span class="scrawl">GET OUT!</span>
+  </div>
+  <div class="bio-right">
+    <h2 class="title" data-ransom>Biography</h2>
+    <p class="body">I'm KAUZMIK, an independent music artist passionate about creating unique sounds and expressing my creativity through music. I enjoy exploring different musical styles and building a sound that reflects my identity and vision.</p>
+  </div>
+  <p class="watermark" aria-hidden="true">KAUZMIK<br>INDEPENDENT<br>©2026</p>
+</section>
+
+<div class="tear diag" data-seed="3"></div>
+
+<!-- STORY / INTRO -->
+<section class="story">
+  <h2 class="sub-title" data-ransom data-size="sm">Journey</h2>
+  <div class="story-grid">
+    <div class="polaroid">
+      <div class="photo-slot" data-label="Photo"><img src="assets/img/bawra.jpg" alt="KAUZMIK playing acoustic guitar" loading="lazy"></div>
+      <span>KAUZMIK</span>
+    </div>
+    <div class="story-text">
+      <p class="body">Through my music, releases and collaborations, I aim to connect with listeners and bring fresh ideas to every project. I believe in originality, creativity and delivering quality work that stands out.</p>
+      <p class="body">For me, music is more than just sound. It's a way to express myself, connect with people and create something meaningful. My goal is to keep growing as an artist and make music that leaves a lasting impression.</p>
+    </div>
+  </div>
+</section>
+
+<div class="tear diag2" data-seed="4"></div>
+
+<!-- ROLES -->
+<section id="skills" class="roles">
+  <h2 class="spread" data-ransom data-size="lg" data-spread>Roles</h2>
+  <div class="roles-grid">
+    <article><span>01</span><h3 data-ransom data-size="sm">Vocalist</h3><p class="body">Experience in vocal performance, exploring different vocal expressions and bringing emotion to musical projects.</p></article>
+    <article><span>02</span><h3 data-ransom data-size="sm">Lyricist</h3><p class="body">Experience in writing original lyrics, translating creative ideas, emotions and stories into words.</p></article>
+    <article><span>03</span><h3 data-ransom data-size="sm">Composer</h3><p class="body">Experience in developing original musical compositions and experimenting with different styles, melodies and sounds.</p></article>
+    <article><span>04</span><h3 data-ransom data-size="sm">Creative Development</h3><p class="body">Ongoing exploration of new musical directions, building on previous works and evolving as an independent artist.</p></article>
+  </div>
+  <p class="tags"><span>Percussionist</span><span>Guitarist</span></p>
+</section>
+
+<div class="tear thin" data-seed="5"></div>
+
+<!-- LIVE -->
+<section id="live" class="live">
+  <h2 class="title" data-ransom>Live</h2>
+  <ul class="venues">
+    <li><b>Redroom</b></li>
+    <li><b>Gulp &amp; Giggle</b><small>Christmas Eve Special</small></li>
+    <li><b>Radisson Blu</b><small>Guest Performer</small></li>
+    <li><b>NBD Girls Hostel</b></li>
+    <li><b>Cotton University</b></li>
+  </ul>
+</section>
+
+<!-- MOMENTS -->
+<section id="moments" class="moments">
+  <h2 class="title" data-ransom>Moments</h2>
+  <p class="sub">On stage, with the strings.</p>
+  <div class="shots">
+    <figure class="shot"><button type="button" aria-label="Open photo"><img src="assets/img/live.jpg" alt="KAUZMIK performing live with an acoustic guitar" loading="lazy"></button></figure>
+    <figure class="shot"><button type="button" aria-label="Open photo"><img src="assets/img/silhouette.jpg" alt="KAUZMIK in silhouette at sunset with a guitar" loading="lazy"></button></figure>
+    <figure class="shot"><button type="button" aria-label="Open photo"><img src="assets/img/stage.jpg" alt="KAUZMIK on stage with the band at a college event" loading="lazy"></button></figure>
+  </div>
+</section>
+
+<div class="tear thin flip" data-seed="7"></div>
+
+<!-- MUSIC -->
+<section id="samples" class="samples">
+  <h2 class="title center" data-ransom>Music</h2>
+  <div class="records">
+    <article class="rec">
+      <div class="disc"><div class="sleeve photo-slot" data-label="Cover"><img src="assets/img/stage.jpg" alt="" loading="lazy"></div><div class="vinyl"><i></i></div></div>
+      <h3>Live Samples Pt. 1</h3><small>Main Event</small>
+      <ul><li>Steal My Girl</li><li>Death Bed</li><li>Jiyein Kyu</li></ul>
+    </article>
+    <article class="rec">
+      <div class="disc"><div class="sleeve photo-slot" data-label="Cover"><img src="assets/img/live.jpg" alt="" loading="lazy"></div><div class="vinyl"><i></i></div></div>
+      <h3>Live Samples Pt. 2</h3><small>Main Event</small>
+      <ul><li>Steal My Girl</li><li>Death Bed</li><li>Jiyein Kyu</li></ul>
+    </article>
+    <article class="rec">
+      <div class="disc"><div class="sleeve photo-slot" data-label="Cover"><img src="assets/img/silhouette.jpg" alt="" loading="lazy"></div><div class="vinyl"><i></i></div></div>
+      <h3>Live Samples Pt. 3</h3><small>Events</small>
+      <ul><li>DCJ GU</li><li>Freshers</li><li>Econ Fiesta <em>Main Artist</em></li><li>Open Mic GU</li><li>Man Who Can't Be Moved <em>Live</em></li></ul>
+    </article>
+  </div>
+</section>
+
+<!-- COVERS -->
+<section class="covers">
+  <h2 class="sub-title" data-ransom>Acoustic Covers</h2>
+  <div class="cover-row">
+      <figure class="cover"><img src="assets/img/bawra.jpg" alt="Acoustic cover of Bawra" loading="lazy"><figcaption>Bawra</figcaption></figure>
+      <figure class="cover"><img src="assets/img/heather.jpg" alt="Acoustic cover of Heather" loading="lazy"><figcaption>Heather</figcaption></figure>
+      <figure class="cover"><img src="assets/img/yellowstone.jpg" alt="Acoustic cover of Yellowstone" loading="lazy"><figcaption>Yellowstone</figcaption></figure>
+      <figure class="cover"><img src="assets/img/tumse.jpg" alt="Acoustic cover of Tum Se" loading="lazy"><figcaption>Tum Se</figcaption></figure>
+  </div>
+</section>
+
+<div class="tear diag2" data-seed="8"></div>
+
+<!-- RELEASE -->
+<section id="release" class="release">
+  <div class="rel-art sticker-lite">
+    <div class="rel-vinyl"><i></i></div>
+    <img src="assets/img/taaj.jpg" alt="TAAJ cover art, AXLR8 x KAUZMIK" loading="lazy">
+    <i class="tape"></i>
+  </div>
+  <div class="rel-text">
+    <p class="kick">New release</p>
+    <h2 class="rel-title" data-ransom>TAAJ</h2>
+    <p class="rel-by">AXLR8 &times; KAUZMIK</p>
+    <p class="body">Out now on all major streaming platforms, released through XTILE Studio Records Co.</p>
+    <a class="btn solid rel-btn" id="taaj-link" href="#contact" hidden>Listen now</a>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true"></div>
+
+<!-- CLOSING -->
+<section id="finale" class="closing">
+  <div class="beam"></div>
+  <div class="stage-vinyl" aria-hidden="true">
+    <div class="sv-disc">
+      <div class="sv-label">
+        <svg viewBox="0 0 200 200"><defs><path id="sv-circle" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+          <text><textPath href="#sv-circle" startOffset="0">KAUZMIK &#10038; INDEPENDENT MUSIC ARTIST &#10038; KAUZMIK &#10038; INDEPENDENT MUSIC ARTIST &#10038;</textPath></text></svg>
+        <b>KZ</b>
+      </div>
+    </div>
+  </div>
+  <h2 class="cta" data-ransom>LET'S CREATE SOMETHING UNFORGETTABLE.</h2>
+  <p class="outro">I'm KAUZMIK, an independent artist evolving with every song, stage, and experience. As a vocalist, lyricist, composer, percussionist, and guitarist, I strive to create music that reflects my journey and connects with people.</p>
+  <p class="outro bold">Every milestone shapes my sound. Every experience fuels my growth. And I'm only getting started.</p>
+</section>
+
+<div class="tear thin" data-seed="6"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-sec">
+  <div class="vein" aria-hidden="true"></div>
+  <div class="contact-head">
+    <h2 class="title" data-ransom>CONTACT DETAILS</h2>
+    <p class="who" data-ransom>KAUZMIK</p>
+  </div>
+  <div class="slips" id="slips"></div>
+  <div id="contact-links" hidden></div>
+  <footer>&copy; <span id="yr"></span> KAUZMIK &middot; Independent music artist</footer>
+</section>
+</main>
+
+<script src="script.js"></script>
+<script src="anim.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>

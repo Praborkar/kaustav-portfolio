@@ -1,0 +1,162 @@
+/* ===== loader ===== */
+.loader{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,3vh,28px);padding:20px;
+  background:radial-gradient(ellipse 60% 50% at 50% 42%,#1d1d3a 0,#08080c 62%,#040404 100%);
+  transition:transform 1.05s cubic-bezier(.77,0,.18,1)}
+.loader.done{transform:translateY(-108%);pointer-events:none}
+.loader-tear{position:absolute;left:-2%;right:-2%;top:calc(100% - 1px);height:54px;background:var(--paper,#ecebe6);filter:drop-shadow(0 6px 8px rgba(0,0,0,.6))}
+.ld-notes{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.ld-notes span{position:absolute;bottom:-40px;color:#fff;font-family:'Playfair Display',serif;font-weight:900;opacity:0;animation:ldnote var(--d) ease-in infinite;animation-delay:var(--dl)}
+@keyframes ldnote{0%{opacity:0;transform:translateY(0) rotate(0)}15%{opacity:.35}100%{opacity:0;transform:translateY(-105vh) rotate(var(--r))}}
+
+.ld-deck{position:relative;width:clamp(150px,22vw,210px);aspect-ratio:1}
+.loader-vinyl{width:100%;height:100%;border-radius:50%;position:relative;animation:spin 1.6s linear infinite;
+  background:
+   conic-gradient(from 20deg,transparent 0 20%,rgba(255,255,255,.14) 25%,transparent 32% 70%,rgba(255,255,255,.1) 76%,transparent 82%),
+   repeating-radial-gradient(circle,#0b0b0b 0 2px,#202020 2px 4px);
+  box-shadow:0 0 0 3px #2a2a2a,0 18px 50px #000,0 0 60px rgba(70,80,255,.25)}
+.loader-vinyl i{position:absolute;inset:33%;border-radius:50%;background:var(--cream,#f0dcb6);display:grid;place-items:center;box-shadow:inset 0 0 0 3px rgba(0,0,0,.25)}
+.loader-vinyl i::after{content:"";position:absolute;width:7%;aspect-ratio:1;border-radius:50%;background:#050505}
+.loader-vinyl b{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(.7rem,1.8vw,1rem);color:#111;letter-spacing:.08em;transform:translateY(-120%)}
+.tonearm{position:absolute;right:-12%;top:-6%;width:8px;height:92%;transform-origin:50% 7px;transform:rotate(-34deg);
+  background:linear-gradient(90deg,#999,#eee,#777);border-radius:4px;animation:needle 1.1s .5s cubic-bezier(.3,1.4,.4,1) forwards;z-index:2}
+.tonearm::before{content:"";position:absolute;top:-8px;left:50%;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#bbb;box-shadow:inset 0 0 0 5px #444}
+.tonearm u{position:absolute;bottom:-12px;left:-6px;width:20px;height:22px;background:#ddd;border-radius:3px;transform:rotate(-8deg)}
+@keyframes needle{to{transform:rotate(12deg)}}
+
+.loader-word{font-family:'Anton',sans-serif;font-size:clamp(3rem,14vw,8rem);line-height:1;margin-top:6px;text-align:center}
+.loader .rn{animation-play-state:running!important}
+
+.ld-eq{display:flex;align-items:flex-end;justify-content:center;gap:clamp(3px,.6vw,6px);height:56px;width:min(420px,84vw)}
+.ld-eq i{flex:1;max-width:9px;height:var(--h);background:#2c2c36;border-radius:2px;transform-origin:bottom;animation:ldbar var(--t) ease-in-out infinite alternate;transition:background .25s,box-shadow .25s}
+.ld-eq i.on{background:var(--cream,#f0dcb6);box-shadow:0 0 10px rgba(240,220,182,.55)}
+@keyframes ldbar{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.ld-status{font-family:'Special Elite',monospace;text-transform:uppercase;letter-spacing:.3em;font-size:clamp(.7rem,1.8vw,.9rem);color:#9a9aa8;display:flex;gap:12px;align-items:center}
+.ld-pct{color:#fff;min-width:3ch;text-align:right}
+.ld-sep{opacity:.4}
+.ld-msg::after{content:"";animation:dots 1.2s steps(4) infinite}
+@keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+@keyframes spin{to{transform:rotate(360deg)}}
+body.loading{overflow:hidden}
+
+/* ===== progress bar ===== */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:left;transform:scaleX(0);z-index:120;
+  background:linear-gradient(90deg,#e0529a,#e2b92b,#2fa36b,#3b64c8)}
+
+/* ===== custom cursor (mouse only) ===== */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:300;border-radius:50%;opacity:0;transition:opacity .3s}
+.cursor-dot{width:8px;height:8px;background:#fff;mix-blend-mode:difference;margin:-4px 0 0 -4px}
+.cursor-ring{width:38px;height:38px;border:1.5px solid #fff;mix-blend-mode:difference;margin:-19px 0 0 -19px;transition:width .25s,height .25s,margin .25s,background .25s,opacity .3s}
+.cursor-ring.hot{width:70px;height:70px;margin:-35px 0 0 -35px;background:rgba(255,255,255,.18)}
+body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{opacity:1}
+@media (hover:hover) and (pointer:fine){body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}}
+
+/* ===== floating music icons ===== */
+.float-layer{position:fixed;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.fi{position:absolute;bottom:-60px;color:#fff;opacity:0;will-change:transform,opacity;animation:rise var(--d) linear forwards}
+.fi svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.fi.g{font-family:'Playfair Display',serif;font-weight:900;line-height:1}
+@keyframes rise{
+  0%{opacity:0;transform:translate(0,0) rotate(0) scale(.6)}
+  12%{opacity:var(--o)}
+  50%{transform:translate(var(--x),-55vh) rotate(calc(var(--r)*.5)) scale(1)}
+  85%{opacity:var(--o)}
+  100%{opacity:0;transform:translate(calc(var(--x)*-.6),-115vh) rotate(var(--r)) scale(1.1)}}
+
+/* ===== vibe toggle + equalizer ===== */
+.vibe{display:flex;align-items:center;gap:10px;background:none;border:1px solid rgba(255,255,255,.35);color:#fff;padding:6px 14px;border-radius:30px;cursor:pointer;
+  font-family:'Special Elite',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;transition:.25s}
+.vibe:hover{background:#fff;color:#000}
+.vibe[aria-pressed="true"]{background:var(--pink);border-color:var(--pink);color:#fff}
+.eq{display:flex;align-items:flex-end;gap:2px;height:14px}
+.eq i{display:block;width:3px;height:30%;background:currentColor}
+.vibe[aria-pressed="true"] .eq i{animation:eq .6s ease-in-out infinite alternate}
+.eq i:nth-child(2){animation-delay:-.2s!important}.eq i:nth-child(3){animation-delay:-.4s!important}.eq i:nth-child(4){animation-delay:-.1s!important}
+@keyframes eq{from{height:20%}to{height:100%}}
+.nav{gap:16px}
+.nav ul{margin-left:auto}
+
+/* ===== ransom letters pop in ===== */
+.rn{animation:pop .6s cubic-bezier(.2,1.4,.4,1) both;animation-delay:calc(var(--i,0)*55ms);animation-play-state:paused}
+.in .rn,.hero .rn,body.ready .hero .rn{animation-play-state:running}
+body.loading .hero .rn{animation-play-state:paused}
+@keyframes pop{from{opacity:0;translate:0 -50px;scale:.4}to{opacity:1;translate:0 0;scale:1}}
+.rn.flip{animation:flipc .45s ease}
+@keyframes flipc{50%{scale:1 0}}
+/* titles with .reveal fade the container, letters do the work */
+.title.reveal,.cta.reveal{transform:none}
+
+/* ===== sections: richer reveals ===== */
+.reveal{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--dl,0ms)}
+.bio-photo-wrap.reveal,.polaroid{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.about .bio-right.reveal{transform:translateX(60px)}
+.about .bio-right.reveal.in{transform:none}
+.roles-grid article.reveal{transform:translateY(50px) rotate(3deg)}
+.roles-grid article.reveal.in{transform:none}
+.roles-grid article:nth-child(even).reveal.in{transform:none}
+.venues li.reveal{transform:translateX(-60px)}
+.venues li.reveal.in{transform:none}
+.rec.reveal{transform:translateY(60px) scale(.92)}
+.rec.reveal.in{transform:none}
+/* torn strips wipe in */
+.tear{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.7,0,.2,1)}
+.tear.wiped{clip-path:none!important}
+
+/* ===== hero extras ===== */
+.hero-collage .sticker{transition:transform .25s ease-out}
+.hero-collage .s-a{animation:bob 6s ease-in-out infinite}
+.hero-collage .s-b{animation:bob 7s ease-in-out -2s infinite}
+.hero-collage .s-c{animation:bob 5s ease-in-out -1s infinite}
+@keyframes bob{50%{translate:0 -14px}}
+.doodle path,.doodle circle{stroke-dasharray:400;stroke-dashoffset:400;animation:draw 3s ease forwards 1.6s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.d2{animation:spin 18s linear infinite}
+.hero-q em{display:inline-block;animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{50%{text-shadow:0 0 18px rgba(226,185,43,.8);transform:skewX(-6deg)}}
+.hero-sub .w{display:inline-block;opacity:0;transform:translateY(14px);animation:up .6s forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.scrawl{animation:wig 3s ease-in-out infinite}
+@keyframes wig{50%{transform:rotate(-3deg) scale(1.06)}}
+
+/* ===== buttons: shine ===== */
+.btn,.contact a{position:relative;overflow:hidden}
+.btn::after,.contact a::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover::after,.contact a:hover::after{left:130%}
+
+/* ===== tilt cards ===== */
+.roles-grid article,.polaroid,.bio-photo-wrap{transform-style:preserve-3d;will-change:transform}
+.roles-grid article::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.14),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.roles-grid article:hover::before{opacity:1}
+
+/* ===== records ===== */
+.vinyl{animation:spin 9s linear infinite;animation-play-state:paused;transition:right .5s,transform .5s}
+.rec:hover .vinyl{animation:spin 1.8s linear infinite;right:-12%}
+.sleeve{transition:transform .5s}
+.rec:hover .sleeve{transform:translateX(-8%) rotate(-4deg)}
+.rec .disc::after{content:"♪";position:absolute;right:8%;top:-6%;font-size:1.8rem;opacity:0;transition:.4s}
+.rec:hover .disc::after{opacity:1;transform:translateY(-14px) rotate(14deg)}
+
+/* ===== ticker ===== */
+.marquee:hover .track{animation-play-state:paused}
+
+/* ===== venues underline sweep ===== */
+.venues li{position:relative}
+.venues li::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.venues li:hover::after{transform:scaleX(1)}
+
+/* ===== waveform divider ===== */
+.wave{display:flex;align-items:center;justify-content:center;gap:clamp(2px,.5vw,5px);height:140px;padding:0 var(--gut);background:#000;overflow:hidden}
+.wave i{flex:1;max-width:10px;background:#fff;height:100%;transform:scaleY(.08);transform-origin:center;border-radius:2px;
+  animation:wv var(--t) ease-in-out infinite alternate;animation-delay:var(--dl)}
+@keyframes wv{to{transform:scaleY(var(--h))}}
+body.beat .wave i{animation-duration:.4s}
+
+/* ===== closing figure glow ===== */
+.beam{animation:beam 5s ease-in-out infinite alternate}
+@keyframes beam{from{opacity:.45}to{opacity:.8}}
+.cta .rn{cursor:default}
+
+@media (max-width:700px){.vibe-label{display:none}.vibe{padding:6px 10px}.nav ul{margin-left:0}}
+@media (prefers-reduced-motion:reduce){
+  .loader,.cursor-dot,.cursor-ring,.float-layer{display:none}
+  .rn{animation:none;opacity:1}.tear{clip-path:none}.doodle path,.doodle circle{stroke-dashoffset:0;animation:none}
+}
