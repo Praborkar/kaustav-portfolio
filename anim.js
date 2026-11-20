@@ -113,13 +113,13 @@ const SPARK = ["#ef476f", "#c6d34a", "#d63a63", "#a8c43a", "#c24a2c", "#e8508a"]
 const STAR = '<svg viewBox="-10 -10 20 20"><path class="st" d="M0-10C1.4-3.6 3.6-1.4 10 0 3.6 1.4 1.4 3.6 0 10-1.4 3.6-3.6 1.4-10 0-3.6-1.4-1.4-3.6 0-10Z"/></svg>';
 const DOT = '<svg viewBox="-10 -10 20 20"><circle class="dot" r="6"/></svg>';
 $$("[data-ransom]").forEach((el, k) => {
-  const n = el.classList.contains("hero-name") ? 9 : 5;
+  const small = el.matches("h3"), n = el.classList.contains("hero-name") ? 9 : small ? 2 : 5, f = small ? .45 : innerWidth < 600 ? .7 : 1;
   for (let i = 0; i < n; i++) {
     const s = document.createElement("span"), dot = i % 4 === 3;
     s.className = "sp4";
     s.innerHTML = dot ? DOT : STAR;
     s.style.setProperty("--c", SPARK[(i + k) % SPARK.length]);
-    s.style.setProperty("--s", (dot ? 9 + Math.random() * 7 : 16 + Math.random() * 26) + "px");
+    s.style.setProperty("--s", ((dot ? 9 + Math.random() * 7 : 16 + Math.random() * 26) * f) + "px");
     s.style.setProperty("--x", (Math.random() * 110 - 5) + "%");
     s.style.setProperty("--y", (Math.random() * 130 - 20) + "%");
     s.style.setProperty("--t", (1.6 + Math.random() * 2) + "s");

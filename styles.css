@@ -104,7 +104,7 @@ section{position:relative}
 
 /* ---------- biography ---------- */
 .about{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,5vw,80px);align-items:center;max-width:var(--max);margin:0 auto;padding:clamp(70px,9vw,130px) var(--gut)}
-.bio-photo-wrap{position:relative;max-width:520px}
+.bio-photo-wrap{position:relative;max-width:520px;width:100%}
 .bio-photo{aspect-ratio:3/4;width:100%;clip-path:polygon(0 0,92% 3%,100% 40%,94% 100%,0 100%)}
 .scrawl{position:absolute;left:6%;bottom:12%;font-family:'Permanent Marker',cursive;font-size:clamp(1.5rem,3.5vw,2.4rem);transform:rotate(-7deg);z-index:2;text-shadow:2px 2px 0 #000}
 .bio-right{display:flex;flex-direction:column;gap:28px}
@@ -115,7 +115,7 @@ section{position:relative}
 .story .wrap{max-width:1000px}
 .story .sub-title{display:block;margin-bottom:34px;transform:rotate(-2deg)}
 .story-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,70px);align-items:center}
-.polaroid{background:var(--paper);padding:12px 12px 10px;transform:rotate(-2.5deg);box-shadow:8px 10px 0 rgba(0,0,0,.7);max-width:360px}
+.polaroid{background:var(--paper);padding:12px 12px 10px;transform:rotate(-2.5deg);box-shadow:8px 10px 0 rgba(0,0,0,.7);max-width:360px;width:100%}
 .polaroid .photo-slot{aspect-ratio:1;filter:grayscale(1)}
 .polaroid span{display:block;font-family:'Special Elite',monospace;color:#222;font-size:.8rem;margin-top:10px;text-transform:uppercase;letter-spacing:.2em}
 .story-text{display:grid;gap:20px}
@@ -126,7 +126,7 @@ section{position:relative}
 .roles-grid article{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);padding:28px 24px 32px;transition:.3s;position:relative}
 .roles-grid article:hover{transform:translateY(-8px) rotate(-.8deg);background:rgba(255,255,255,.08);border-color:#fff}
 .roles-grid article:nth-child(even){margin-top:36px}
-.roles-grid article span{font-family:'Special Elite',monospace;color:var(--gray);font-size:.85rem}
+.roles-grid article>span{font-family:'Special Elite',monospace;color:var(--gray);font-size:.85rem}
 .roles-grid h3{margin:8px 0 16px;font-size:1.6rem;line-height:1.4}
 .roles-grid .body{font-size:.92rem}
 .tags{display:flex;gap:16px;justify-content:center;margin-top:64px;flex-wrap:wrap}

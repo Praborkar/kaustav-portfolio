@@ -24,6 +24,13 @@
     <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -7 5.9" result="gm"/>
     <feComposite in="d" in2="gm" operator="in"/>
   </filter>
+  <filter id="chalk-lite" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="w"/>
+    <feDisplacementMap in="SourceGraphic" in2="w" scale="1.6" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="9" result="g"/>
+    <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -8 7.2" result="gm"/>
+    <feComposite in="d" in2="gm" operator="in"/>
+  </filter>
 </svg>
 <div class="loader" aria-hidden="true">
   <div class="ld-notes"></div>
@@ -124,7 +131,7 @@
   <h2 class="sub-title" data-ransom data-size="sm">Journey</h2>
   <div class="story-grid">
     <div class="polaroid">
-      <div class="photo-slot" data-label="Photo"><img src="assets/img/bawra.jpg" alt="KAUZMIK playing acoustic guitar" loading="lazy"></div>
+      <div class="photo-slot" data-label="Photo"><img src="assets/img/stage.jpg" alt="KAUZMIK performing with the band on stage" loading="lazy"></div>
       <span>KAUZMIK</span>
     </div>
     <div class="story-text">
@@ -201,7 +208,7 @@
 <section class="covers">
   <h2 class="sub-title" data-ransom>Acoustic Covers</h2>
   <div class="cover-row">
-      <figure class="cover"><img src="assets/img/bawra.jpg" alt="Acoustic cover of Bawra" loading="lazy"><figcaption>Bawra</figcaption></figure>
+      <figure class="cover"><img src="assets/img/stage.jpg" alt="KAUZMIK performing with the band on stage" loading="lazy"><figcaption>Bawra</figcaption></figure>
       <figure class="cover"><img src="assets/img/heather.jpg" alt="Acoustic cover of Heather" loading="lazy"><figcaption>Heather</figcaption></figure>
       <figure class="cover"><img src="assets/img/yellowstone.jpg" alt="Acoustic cover of Yellowstone" loading="lazy"><figcaption>Yellowstone</figcaption></figure>
       <figure class="cover"><img src="assets/img/tumse.jpg" alt="Acoustic cover of Tum Se" loading="lazy"><figcaption>Tum Se</figcaption></figure>

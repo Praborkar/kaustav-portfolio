@@ -121,3 +121,37 @@
 .logo .spark{position:absolute;top:-8px;right:-14px;width:16px;height:16px;fill:var(--yellow);animation:twinkle 2.4s ease-in-out infinite}
 @keyframes swash{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.logo .swash path{animation:none;stroke-dashoffset:0}}
+
+/* ===== responsive fixes ===== */
+/* tall cut-out letters need more line room so multi-line headings never collide */
+[data-ransom]{line-height:1.3}
+.hero-name{line-height:1.2}
+.title,.cta,.contact-head .title,.roles-grid h3{line-height:1.3!important}
+.cta{font-size:clamp(2.1rem,7vw,5rem)}
+
+body.menu-open{overflow:hidden}
+@media (max-width:700px){
+  /* backdrop-filter turns the nav into the containing block for the fixed menu, which crushed it into the bar */
+  .nav,.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .nav.scrolled,.nav.open{background:rgba(5,5,5,.96)}
+  .nav ul{position:fixed;inset:0;height:100vh;height:100dvh;z-index:1;background:#050505;visibility:hidden;transform:translateY(-100%);
+    transition:transform .45s cubic-bezier(.7,0,.2,1),visibility 0s .45s;padding:80px 20px 40px;gap:26px;margin-left:0}
+  .nav.open ul{visibility:visible;transform:none;transition-delay:0s}
+  .nav .logo,.nav .vibe,.nav .burger{position:relative;z-index:2}
+  .nav ul a{font-size:1.5rem;letter-spacing:.2em}
+  .vibe .eq i{min-height:5px}
+  .eq{height:16px}
+  .contact-head .title{max-width:none}
+  .hero-name{font-size:clamp(3.6rem,17vw,5rem)}
+  .title{font-size:clamp(2.8rem,15vw,4.6rem)}
+  .about{padding-left:var(--gut)}
+}
+
+/* small headings: lighter filter, bigger so they stay readable */
+.roles-grid h3,.sub-title{filter:url(#chalk-lite)}
+.roles-grid h3{font-size:clamp(2.3rem,6vw,2.8rem)}
+.rn.sp{width:.3em}
+.cta{line-height:1.4!important}
+.polaroid{max-width:320px}
+.polaroid .photo-slot img{object-position:50% 30%}
+@media (max-width:700px){.polaroid{max-width:300px}}

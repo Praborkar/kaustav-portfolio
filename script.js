@@ -16,7 +16,7 @@ const CONFIG = {
 function rng(seed){ return () => (seed = (seed * 16807) % 2147483647) / 2147483647; }
 
 function chunk(r) {
-  return `rotate(${(r() * 10 - 5).toFixed(1)}deg) skew(${(r() * 10 - 5).toFixed(1)}deg,${(r() * 4 - 2).toFixed(1)}deg) scale(${(.92 + r() * .2).toFixed(2)},${(1.05 + r() * .35).toFixed(2)}) translateY(${(r() * 8 - 4).toFixed(1)}px)`;
+  return `rotate(${(r() * 8 - 4).toFixed(1)}deg) skew(${(r() * 6 - 3).toFixed(1)}deg,${(r() * 3 - 1.5).toFixed(1)}deg) scale(${(.92 + r() * .2).toFixed(2)},${(1.05 + r() * .35).toFixed(2)}) translateY(${(r() * 8 - 4).toFixed(1)}px)`;
 }
 window.chunk = chunk;
 
@@ -37,9 +37,10 @@ document.querySelectorAll("[data-ransom]").forEach((el, k) => {
     s.className = "rn " + cls;
     s.textContent = ch;
     // hand-cut feel: each letter gets its own height, skew and tilt
-    s.classList.add(["f0", "f0", "f0", "f1", "f2", "f3"][Math.floor(r() * 6)]);
+    const thin = /[iljIt1!.,':;]/.test(ch);   // thin glyphs vanish in the grainy filter, keep them heavy
+    s.classList.add(thin ? "f0" : ["f0", "f0", "f0", "f1", "f2", "f3"][Math.floor(r() * 6)]);
     s.style.transform = chunk(r);
-    if (spread) s.style.translate = `${((i % 2 ? 1 : -1) * (6 + r() * 14)).toFixed(0)}px 0`;
+    if (spread) s.style.translate = `0 ${((i % 2 ? 1 : -1) * (4 + r() * 9)).toFixed(0)}px`;
     word.append(s);
   });
 });
@@ -109,8 +110,10 @@ if (taaj && CONFIG.taaj) { taaj.href = CONFIG.taaj; taaj.target = "_blank"; taaj
 /* nav */
 const nav = document.querySelector(".nav");
 const burger = document.querySelector(".burger");
-burger.addEventListener("click", () => burger.setAttribute("aria-expanded", nav.classList.toggle("open")));
-nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }));
+const setMenu = open => { nav.classList.toggle("open", open); document.body.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open); };
+burger.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 
 /* nav background on scroll + active link */
 const onScroll = () => nav.classList.toggle("scrolled", scrollY > 40);
